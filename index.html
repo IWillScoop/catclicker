@@ -1,18 +1,32 @@
 <html>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	<body>
-		<img id="cat" src="cat.jpg"></img>
+		<div>
+			<img id="cat" src="cat.jpg"></img>
+			<img id="cat2" src="cat2.jpg"></img>
+		</div>
 		<br>
 		<div>
 			<p id="clicks">
 
 			</p>
+			<p id="clicks2" style="margin-left:40%">
+
+			</p>
 		</div>
 			<script type="text/javascript">
 				var clicks = 0;
+				var clicks2 = 0;
 				var cat = document.getElementById('cat');
+				var cat2 = document.getElementById('cat2');
 				cat.addEventListener('click', function() {
 					clicks++;
-					document.getElementById("clicks").innerHTML = "Cat clicked "+clicks+" times!";
+					document.getElementById("clicks").innerHTML = "Shelby clicked "+clicks+" times!";
+				},false);
+
+				cat2.addEventListener('click', function() {
+					clicks2++;
+					document.getElementById("clicks2").innerHTML = "Cobra clicked "+clicks2+" times!";
 				},false);
 			</script>
 		
