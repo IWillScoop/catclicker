@@ -1,0 +1,21 @@
+<html>
+	<body>
+		<img id="cat" src="cat.jpg"></img>
+		<br>
+		<div>
+			<p id="clicks">
+
+			</p>
+		</div>
+			<script type="text/javascript">
+				var clicks = 0;
+				var cat = document.getElementById('cat');
+				cat.addEventListener('click', function() {
+					clicks++;
+					document.getElementById("clicks").innerHTML = "Cat clicked "+clicks+" times!";
+				},false);
+			</script>
+		
+	</body>
+</html>
+
