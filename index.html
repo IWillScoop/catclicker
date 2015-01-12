@@ -1,33 +1,81 @@
 <html>
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	<body>
-		<div>
-			<img id="cat" src="cat.jpg"></img>
-			<img id="cat2" src="cat2.jpg"></img>
+		<div style="margin-left:50%">
+			<select id="select">
+				<option value="">-- Pick a Cat --</option>
+				<option value="Shelby">Shelby</option>
+				<option value="Cobra">Cobra</option>
+				<option value="Mustang">Mustang</option>
+				<option value="Lancer">Lancer</option>
+				<option value="Jaguar">Jaguar</option>
+			</select>
 		</div>
 		<br>
 		<div>
-			<p id="clicks">
-
+			<img class="Shelby clickable" src="cat.jpg" hidden></img>
+			<img class="Cobra clickable" src="cat2.jpg" hidden></img>
+			<img class="Mustang clickable" src="cat3.jpg" hidden></img>
+			<img class="Lancer clickable" src="cat4.jpg" hidden></img>
+			<img class="Jaguar clickable" src="cat5.jpg" hidden></img>
+		</div>
+		<br>
+		<div>
+			<p class="Shelby score" hidden>
+				Shelby clicked 0 times!
 			</p>
-			<p id="clicks2" style="margin-left:40%">
-
+			<p class="Cobra score" hidden>
+				Cobra clicked 0 times!
+			</p>
+			<p class="Mustang score" hidden>
+				Mustang clicked 0 times!
+			</p>
+			<p class="Lancer score" hidden>
+				Lancer clicked 0 times!
+			</p>
+			<p class="Jaguar score" hidden>
+				Jaguar clicked 0 times!
 			</p>
 		</div>
 			<script type="text/javascript">
 				var clicks = 0;
 				var clicks2 = 0;
-				var cat = document.getElementById('cat');
-				var cat2 = document.getElementById('cat2');
-				cat.addEventListener('click', function() {
-					clicks++;
-					document.getElementById("clicks").innerHTML = "Shelby clicked "+clicks+" times!";
-				},false);
+				var clicks3 = 0;
+				var clicks4 = 0;
+				var clicks5 = 0;
+				var cat = "";
+				$("#select").change(function() {
+					cat = $(this).val();
+					$(".score").attr('hidden', 'true');
+					$('.clickable').attr('hidden', 'true');
+					$("."+cat).removeAttr('hidden');
+				});
+				$(".clickable").click(function() {
+					switch(cat) {
+						case 'Shelby':
+							clicks++;
+							$('.'+cat).empty().append(cat+' clicked '+ clicks +' times!');
+							break;
+						case 'Cobra':
+							clicks2++;
+							$('.'+cat).empty().append(cat+' clicked '+ clicks2 +' times!');
+							break;
+						case 'Mustang':
+							clicks3++;
+							$('.'+cat).empty().append(cat+' clicked '+ clicks3 +' times!');
+							break;
+						case 'Lancer':
+							clicks4++;
+							$('.'+cat).empty().append(cat+' clicked '+ clicks4 +' times!');
+							break;
+						case 'Jaguar':
+							 clicks5++;
+							 $('.'+cat).empty().append(cat+' clicked '+ clicks5 +' times!');
+							 break;
+					}
+					
+				})
 
-				cat2.addEventListener('click', function() {
-					clicks2++;
-					document.getElementById("clicks2").innerHTML = "Cobra clicked "+clicks2+" times!";
-				},false);
 			</script>
 		
 	</body>
